@@ -1,0 +1,18 @@
+ html {height: 100%; }
+ body { background-color: #ffffe7; height: 100%;}
+ header { background-color: #c7c7f7; }
+ nav { background-color: #c7f7f7; }
+aside { background-color: #f7c7c7; width: 15%;float: left;}
+article { background-color: #c7c7c7; width: 85%;float: left; }
+section { background-color: #c7f7c7; }
+footer { background-color: #e7e7e7; }
+flexbox { display: flex; }
+blacktext{ color: #0f0f0f; }
+redtext { color: #ff3333; }
+bluetext {color: #3333ff; }
+irontext { color: #efefaf; }
+browntext { color: #9f5f5f; }
+sectext { color: #7f7fef; }
+lighttext { color: #9f9f7f; }
+#about { float: right; margin: 0px 2em 0px 0px; }
+milky {background-color: #ffffea; }
