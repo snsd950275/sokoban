@@ -1,5 +1,23 @@
 'use strict';
 let http = require('http');
+const routingTable = {
+
+
+  '/': {
+    url: '../htdocs/index.html',
+    type: 'text/html'
+  },
+  '/styles.css': {
+    url: '../htdocs/assets/css/styles.css',
+    type: 'text/css'
+  },
+  '/SokobanClone_byVellidragon.png': {
+    url: '../htdocs/assets/png/SokobanClone_byVellidragon.png',
+    type: 'text/css'
+  },
+};
+
+
 /**
 * 利⽤ http.ServerResponse 物件回傳檔案內容
 *
@@ -38,28 +56,19 @@ http.createServer((request, response) => {
     );
   });
   request.on('end', () => {
-    switch (request.url) {
-      case '/':
-      serve(response, '../htdocs/index.html', 'text/html');
-      break;
-      case '/assets/css/styles.css':
-      serve(response, '../htdocs/assets/css/styles.css', 'text/css');
-      break;
-      case '/assets/png/SokobanClone_byVellidragon.png':
-      serve(
-        response,
-        '../htdocs/assets/png/SokobanClone_byVellidragon.png',
-        'image/png'
-      );
-      break;
-      default:
-      console.log(' 未定義的存取: ' + request.url);
-      response.end();
-      break;
+     if (request.url in routingTable) {
+     let obj = routingTable[request.url];
+
+     serve(response, obj.url, obj.type);
+     }
+     else {
+     console.log(' 未定義的存取: ' + request.url);
+
+     response.end();
+
     }
   });
 }).listen(8088);
 // log message to Console
-11
 console.log(' 伺服器啓動，連線 url: http://127.0.0.1:8088/');
 // index.js
