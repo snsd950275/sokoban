@@ -1,24 +1,8 @@
 'use strict';
 let http = require('http');
-const routingTable = {
 
-
-  '/': {
-    url: '../htdocs/index.html',
-    type: 'text/html'
-  },
-  '/styles.css': {
-    url: '../htdocs/assets/css/styles.css',
-    type: 'text/css'
-  },
-  '/SokobanClone_byVellidragon.png': {
-    url: '../htdocs/assets/png/SokobanClone_byVellidragon.png',
-    type: 'text/css'
-  },
-};
-
-
-/**
+const routingTable=require('./config.json');
+/*
 * 利⽤ http.ServerResponse 物件回傳檔案內容
 *
 * @name serve
